@@ -1,0 +1,138 @@
+<div id="formDelete" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img class="ico" style="width:40px;" src="{{ url_for('static', filename='user.png') }}">
+                <h4 class="modal-title">Supprimer cet utilisateur </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body mx-3 form-group">
+                <div class="md-form mb-5 formDelete">
+                    <label for="nom" class='control-label'>Prenom : </label>
+                    <input type="text" class="form-control formDeletePrenom" disabled="disabled">
+                </div>
+                <div class="md-form mb-5 formDelete">
+                    <label for="nom" class='control-label'>Nom : </label>
+                    <input type="text" class="form-control formDeleteNom" disabled="disabled">
+                </div>
+                <div class="md-form mb-5 formDelete">
+                    <label for="nom" class='control-label'>Equipe : </label>
+                    <input type="text" class="form-control formDeleteEquipe" disabled="disabled">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary supprimer_utilisateur">Supprimer !</button>
+                </div>
+                <div class="md-form mb-5 formUpdateIndex" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal HTML -->
+<div id="formUpdate" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img class="ico" style="width:40px;" src="{{ url_for('static', filename='user.png') }}">
+                <h4 class="modal-title">Modifier un utilisateur </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body mx-3 form-group">
+                <div class="md-form mb-5 prenom">
+                    <label for="prenom" class='control-label'>Prenom : </label>
+                    <input type="text" id="prenom" class="form-control formUpdatePrenom" value="" >                  
+                </div>
+                <div class="md-form mb-5 nom">
+                  <label for="nom" class='control-label'>Nom : </label>
+                  <input type="text" id="nom" class="form-control formUpdateNom" value="default" >                  
+                </div>
+                <div class="md-form mb-5 equipe">
+                    <label for="equipe" class='control-label'>Equipe : </label>                   
+                    <select class="browser-default custom-select" id=equipe>
+                        <option selected id=equipe_choisi>Choisir l'équipe parmie la liste</option>
+                        <option value="1">Unix</option>
+                        <option value="2">Virtu</option>
+                        <option value="3">Sto</option>
+                      </select>
+                </div>
+                <div class="md-form mb-5 formUpdateIndex" style="display:none;"></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" id="valider_modification" class="btn btn-primary">Modifier les infos !</button>
+                </div>
+                <div id="Error" class="alert alert-danger Error" role="alert" style="display:none;"></div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML -->
+<div id="formCreate" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img class="ico" style="width:40px;" src="{{ url_for('static', filename='user.png') }}">
+                <h4 class="modal-title">Créer un utilisateur </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body mx-3 form-group">
+                <div class="md-form mb-5 prenom">
+                    <label for="prenom" class='control-label'>Prenom : </label>
+                    <input type="text" id="prenom" class="form-control">                    
+                </div>
+                <div class="md-form mb-5 nom">
+                  <label for="nom" class='control-label'>Nom : </label>
+                  <input type="text" id="nom" class="form-control" default="" >                  
+                </div>               
+                <div class="md-form mb-5 equipe">
+                    <label for="equipe" class='control-label'>Equipe : </label>
+                    
+                    <select class="browser-default custom-select" id=equipe>
+                        <option selected disabled >Choisir l'équipe parmie la liste</option>
+                        <option value="1">Unix</option>
+                        <option value="2">Virtu</option>
+                        <option value="3">Sto</option>
+                    </select>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" id="valider_creation" class="btn btn-primary">Créer l'utilisateur</button>
+                </div>
+                <div class="alert alert-danger Error" role="alert" style="display:none;"></div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="GenererPP" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img class="ico" style="width:50px;" src="{{ url_for('static', filename='winner.png') }}">
+                <h4 class="modal-title">Les gagnants sont :  </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body mx-3 form-group d-flex justify-content-between gagnant-pp-body">
+                <label class=label_gagnant>Le gagnant : </label>
+                <input type="text" class="form-control formGagnant" disabled="disabled">
+            </div>
+            <div class="modal-body mx-3 form-group d-flex justify-content-between backup-pp-body">
+                <label class=label_backup>Le backup : </label>
+                <input type="text" class="form-control formBackup" disabled="disabled">
+            </div>
+            <div class="alert alert-danger Error-pp" role="alert" style="display:none;"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+/* body {
+    background-color: floralwhite;
+} */
+
+#Success {
+    display:none;
+}
+
+#Warning {
+    display:none;
+}
+
+.gagnant-pp-body  label {
+    margin-top:6px;
+    margin-right:20px;
+    width:40%
+}
+
+.backup-pp-body  label {
+    margin-top:6px;
+    margin-right:20px;
+    width:40%
+}
+
+.label_gagnant{
+    color:#218838
+}
+
+.label_backup {
+    color:#e79c30;
+}
+
+.h1_img {
+    margin-right: 15px;
+    text-align: right;
+}
+
+h1 {
+    
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 0px;
+    margin-bottom: 1px;
+    }
+
+.table {
+    margin-bottom: 0rem;
+}
+
+.ico {
+    margin-right: 10px;
+}
