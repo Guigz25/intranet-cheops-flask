@@ -10,6 +10,22 @@
     display:none;
 }
 
+.navbar {
+    border-radius:5px;
+    margin-right:10px;
+}
+
+.slash {
+    padding-left :  5px;
+    padding-right : 5px;
+    margin:10px;
+}
+
+.active {
+    color: #138496 !important;
+    text-decoration : underline;
+}
+
 .gagnant-pp-body  label {
     margin-top:6px;
     margin-right:20px;

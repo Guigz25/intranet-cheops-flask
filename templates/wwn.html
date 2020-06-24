@@ -1,0 +1,32 @@
+{% set active_page = active_page|default('api') -%}
+{% extends "base.html" %}
+
+{% block title %} Bienvenue ! {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr class="table-success">
+                <th style="width: 35%" scope="col">Lun</th>
+                <th style="width: 35%" scope="col">Taille (en Go)</th>
+            </tr>
+        </thead>
+        <tbody id='tableau'>
+            {% for lun in luns %}
+            <tr class='ligne'>
+                <td>{{ lun.nom }}</td>
+                <td>{{ lun.taille }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    
+
+
+   
+</div>
+
+
+
+{% endblock %}

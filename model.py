@@ -2,11 +2,11 @@ import json
 from collections import OrderedDict
 
 def load_db():
-    with open(path) as data_file:
+    with open("db.json") as data_file:
         return json.load(data_file)
 
 def save_db():
-    with open(path, "w") as f:
+    with open("db.json", "w") as f:
         return json.dump(db, f, sort_keys=True)
 
 def get_index(nom, prenom):
@@ -21,5 +21,5 @@ def get_index(nom, prenom):
         y += 1
 
 
-path =  "/var/www/intranet-cheops-flask/db.json"
+# path =  "/var/www/intranet-cheops-flask/db.json"
 db = load_db()

@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, url_for, redirect, jsonify
 from model import db, save_db, load_db, get_index
 import random
+from hp3parclient import client, exceptions
+import pprint
+
+
 
 
 app = Flask(__name__)
@@ -84,3 +88,47 @@ def gagnant():
             return jsonify({'error': 'Désolé, il y a eu un problème lors de l\'execution du script ... Veuillez contacter l\'administrateur'})
 
 
+
+@app.route("/wwn")
+def wwn():
+    ip_address = '192.168.92.101'
+    username = '3paradm'
+    password = 'Arr@y_3R'
+
+    cl = client.HP3ParClient("https://%s:8080/api/v1" % ip_address, suppress_ssl_warnings=True)
+    cl.setSSHOptions(ip_address, username, password)
+
+    try : 
+        cl.login(username, password)
+
+        port = cl.getFCPorts()
+        volumes = cl.getVolumes()
+
+        luns = []
+        lun = {}
+        # On parcourt le nombre total de lun et on ressort le nom de la lun
+        for i in range(int(volumes['total'])):
+            # print(volumes['members'][i]['name'])
+            # luns.append(volumes['members'][i]['name'])
+
+            lun = { 
+                'nom': volumes['members'][i]['name'],
+                'taille': int(int(volumes['members'][i]['sizeMiB']) / 1024)
+            }
+            luns.append(lun)
+
+    except exceptions.HTTPUnauthorized as ex:
+       pprint.pprint("You must login first")
+    except Exception as ex:
+       print(ex)
+
+    print(luns)
+
+
+    cl.logout()
+    print("logout worked")
+
+    # print(volumes)
+
+    lun = volumes['members'][74]['name']
+    return render_template('wwn.html', luns=luns)
