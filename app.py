@@ -4,6 +4,7 @@ import random
 
 
 app = Flask(__name__)
+app.debug = True
 
 @app.route("/", methods=["GET", "POST"])
 def home():  
@@ -41,8 +42,11 @@ def home():
                 index=int(request.form['index'])
                 db.pop(int(index))
                 save_db()
+                nomPrenom = personne_select['Nom'] + " " + personne_select['Prenom']
                 return_value = {
-                    'index': index
+                    'index': index,
+                    'nomPrenom': nomPrenom
+
                 }
                 return return_value
 
@@ -78,4 +82,5 @@ def gagnant():
         else:
             print('error')
             return jsonify({'error': 'Désolé, il y a eu un problème lors de l\'execution du script ... Veuillez contacter l\'administrateur'})
+
 

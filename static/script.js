@@ -1,7 +1,6 @@
 
 $(document).ready(function() {
     // $('#Success').hide();
-    
 
     // Création d'un utilisateur 
     $('.container').on('click', '.add_member', function (){
